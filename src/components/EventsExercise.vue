@@ -12,8 +12,14 @@
             property to display its value.
           </p>
           <!-- add event listener to the button element -->
-          <button class="btn btn-primary m-2">Add 1</button>
-          <p>The button has been clicked {{}} times.</p>
+          <input v-model="state.addAmount" />
+          <button
+            class="btn btn-primary m-2"
+            @click="state.counter += parseInt(state.addAmount)"
+          >
+            Add 1
+          </button>
+          <p>The button has been clicked {{ state.counter }} times.</p>
         </div>
         <div class="border p-1">
           <h5>Events Calling A Method</h5>
@@ -26,7 +32,8 @@
             "greeting" property and pass its value into an alert().
           </p>
           <!-- add event listener to the button element -->
-          <button class="btn btn-primary m-2">Greet</button>
+          <input v-model="state.greeting" />
+          <button class="btn btn-primary m-2" @click="greet">Greet</button>
         </div>
       </div>
     </div>
@@ -40,12 +47,18 @@ export default {
   name: "events-exercise",
   setup() {
     const state = reactive({
+      counter: 0,
+      greeting: "HI THERE!",
+      addAmount: 1,
       //add property called "counter"
       //add property called "greeting"
       //create a method called "greet"
     });
     return {
       state,
+      greet() {
+        alert(state.greeting);
+      },
       // Add your methods here
     };
   },

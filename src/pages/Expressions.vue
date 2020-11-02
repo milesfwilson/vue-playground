@@ -95,7 +95,7 @@ export default {
         position: "{{ state.player.position }}",
         number: "{{ state.player.number }}",
       },
-      handleEg: "{{2 + 2}}",
+      handleEg: "{{2 + 5}}",
     });
     return {
       state,
